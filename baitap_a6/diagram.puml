@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class SanPham{
+    -String p_ID;
+    -String p_Name;
+    -int p_Count;
+    -float p_Price;
+    +SanPham(String p_ID, ...)
+    +Stirng getP_ID()
+    +void setP_ID()
+    ...
+}
+
+class DataAccess{
+    -{static} DataAccess instance
+    -List<SanPham> ds_SanPham
+    -DataAccess()
+    +{static} DataAccess getInstance()
+    +void Add_P(SanPham sp);
+    +void Delete_P(String p_ID);
+    +void Update_p(SanPham sp);
+    +List<SanPham> getDs_SanPham()
+}
+
+class UI{
+    -DataAccess
+    +UI()
+    +void Add_P(SanPham sp)
+    +void Delete_P(String p_ID)
+    +void Update_p((String p_ID)
+    +void Display()
+}
+
+class DataAccessType1 extends DataAccess{
+    -{static} DataAccessType1 instance
+    -DataAccessType1
+    +{static} DataAccessType1 getInstance()
+}
+
+
+class DataAccessType2 extends DataAccess{
+    -{static} DataAccessType2 instance
+    -DataAccessType2
+    +{static} DataAccessType2 getInstance()
+}
+
+UI --> DataAccess
+UI --> SanPham
+
+
+
+
+
+@enduml
