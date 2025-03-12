@@ -3,20 +3,19 @@ package bt_java.baitap_a4;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
-
-public class Election {
+public class Election  {
     private int trumCount, bidenCount;
-    private static Election instance;
+    private static Election instance; //Định dạng
     private Set<String> voters;
 
-    Election(){
+    Election(){ //Khai báo
         trumCount = 0;
         bidenCount = 0;
         voters = new HashSet<>();
     }
 
     //Khởi tạo kiểu lazy, chỉ khởi tạo khi dùng
-    public static Election getInstance() {
+    public static Election getInstance() { //Cho dùng
         if(instance == null )
             instance = new Election();
         return instance;

@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Builder{
+    - HoaDonHeader hdHeader
+    - List <String> DS_CTHD
+    + Builder buildheader(String mahd, string ngay, string tenkh)
+    + Builde addCthc(cthd)
+    + HoaDon build
+}
+
+class HoaDon{
+    - HoaDonHeader hdHeader
+    - List <String> DS_CTHD
+    + toString():String
+    # HoaDon(Builder h)
+    +getTongTien
+    +toString(): String
+}
+
+class HoaDonHeader{
+    - String MaHoaDon
+    - String TenKH
+    - String NgayBan
+    # HoaDonHeader(String mahd, string ngay, string tenkh)
+}
+
+class ChiTietHD{
+    - String SanPham
+    - double DonGia
+    - int SoLuong
+    - double ChietKhau
+    #ChiTietHD(String Sp, int sl, double dongia, double chietkhau)
+    +double getThanhTien()
+
+}
+
+Builder ..> HoaDon: Create
+HoaDon --> HoaDonHeader
+HoaDon *--> "*" ChiTietHD
+Builder --> HoaDonHeader
+Builder *--> "*" ChiTietHD
+
+@enduml
