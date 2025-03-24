@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract TreeFolder{
+    #String name;
+    #String creationDate;
+    #String parentPath;
+    +TreeFolder(String name, String creationDate, String parentPath)
+    +String getName();
+    +String getCreationDate();
+    +String getParentPath();
+    +String getStringTreeFolder(String indent); {abstract}
+}
+
+class File extends TreeFolder{
+    +File(String name, String creationDate, String parentPath)
+    +String getStringTreeFolder(String indent)
+}
+
+class Folder extends TreeFolder{
+    -List<TreeFolder> items;
+    +Folder(String name, String creationDate, String parentPath)
+    +void addItem(TreeFolder item)
+    +void removeItem(TreeFolder item)
+    +String getStringTreeFolder(String indent)
+}
+
+
+'TreeFolder <|-- File
+'TreeFolder <|-- Folder
+Folder *--> "*" TreeFolder
+@enduml

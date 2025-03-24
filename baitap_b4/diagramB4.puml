@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+abstract KhoaHoc{
+    #String Ten;
+    +String getTen();
+    +KhoaHoc(String Ten);
+    +int TongTinChi() {abstract}
+    +double TongHocPhi() {abstract}
+    +void InDS() {abstract}
+}
+class HocKy extends KhoaHoc {
+    -List<KhoaHoc> dsmh;
+    +HocKy(String Ten);
+    +void addHocPhan(KhoaHoc hp);
+    +void removeHocPhan(KhoaHoc hp);
+    +int TongTinChi();
+    +double TongHocPhi();
+    +void InDS();
+}
+class MonHoc extends KhoaHoc{
+    -int TinChi;
+    -double HocPhi;
+    +MonHoc(String Ten, int TinChi, double HocPhi)
+    +int getTinChi();
+    +double getHocPhi();
+    +int TongTinChi();
+    +double TongHocPhi();
+    +void InDS();
+}
+
+HocKy *--> "*" KhoaHoc
+
+@enduml

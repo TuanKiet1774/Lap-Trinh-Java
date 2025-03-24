@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Chứa -->
+'subject gửi thông báo (ATM)
+'observer nhận thông báo (TaiKhoan)
+'subjectListener
+'1.observer implements subjectListener
+'2.subject chứa subjectListener (có thể 1 hoặc nhiều)
+''3.observer chứa 1 biên subject
+class ATM{
+    + void rutTien(int soTien)
+    + void nhanThe(ATMListener theATM)
+    + void traThe(ATMListener theATM)
+}
+class TaiKhoan implements ATMListener{
+    String tenTK;
+    int soDu;
+    + void duaTheVaoATM()
+    + void rutTheRaATM()
+}
+'ATMListener
+interface ATMListener{
+    boolean kiemTraSoDu(int soTien)
+    void nhanThongBao(int soTien, boolean thanhCong)
+
+}
+
+ATM --> ATMListener: TheATM
+TaiKhoan --> ATM: atm
+
+@enduml
