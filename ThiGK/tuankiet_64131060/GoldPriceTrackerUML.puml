@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class GoldPriceController_KIET{
+    - {static} GoldPrice_KIET instance_KIET
+    - String loai_KIET, ngay_KIET
+    - int giaMua_KIET, giaBan_KIET
+    - List<String> ds_KIET
+    # GoldPrice_KIET()
+    + {static} GoldPrice_KIET getInstance_KIET()
+    + void them(Gold_KIET v)
+    + void xem(String ngay_KIET)
+}
+
+class UI_KIET{
+    - GoldPriceController_KIET g
+    + UI_KIET()
+    + void them(Gold_KIET v)
+    + void xem(String ngay_KIET)
+}
+
+class Gold_KIET{
+    - String loai_KIET, ngay_Kiet
+    - int giaMua_KIET, giaBan_KIET
+    + Gold_KIET(String loai_KIET, int giaMua_KIET, int giaBan_KIET, String ngay_KIET)
+    + String toString()
+}
+
+UI_KIET --> GoldPriceController_KIET
+UI_KIET --> Gold_KIET
+
+@enduml
