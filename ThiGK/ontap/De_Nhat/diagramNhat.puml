@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Builder{
+    - SinhVien_Nhat sv
+    - List<MonHoc_Nhat> dsdk
+    - List<MonHoc_Nhat> dsct
+    + Builder getSinhVien(SinhVien_Nhat sv)
+    + Builder addDK(MonHoc_Nhat mh)
+    + Builder addCT(MonHoc_Nhat mh)
+    + KeHoachKyHoc_Nhat build()
+}
+
+class KeHoachKyHoc_Nhat{
+    - SinhVien_Nhat sv
+    - List<MonHoc_Nhat> dsdk
+    - List<MonHoc_Nhat> dsct
+    # KeHoachKyHoc_Nhat (Builder b)
+    + void removeDK(MonHoc_Nhat mh)
+    + void removeDCT(MonHoc_Nhat mh)
+    + void inDS(List<MonHoc_Nhat> ds)
+    + void hienThi()
+}
+
+class SinhVien_Nhat{
+    + String maSV
+    + String hoTenSV
+    + String ngaySinh
+    + String queQuan
+    + SinhVien_Nhat(String msv, String ht, String ngs, String qq)
+    + String toString()
+
+}
+
+class MonHoc_Nhat{
+    + String maMH
+    + String tenMH
+    + int soTC
+    + MonHoc_Nhat(String maMH, int soTC, String tenMH)
+    + String toString()
+}
+
+class HeThongLuuTru_Nhat{
+    - {static} HeThongLuuTru instance
+    - Map<String, KeHoachHocTap_Nhat> htlt
+    # HeThongLuuTru()
+    + {static} HeThongLuuTru getInstance()
+    + void addKH(String mssv, KeHoachHocTap_Nhat kt)
+    + void hienThiKH()
+}
+
+KeHoachKyHoc_Nhat <.. Builder
+Builder --> SinhVien_Nhat
+KeHoachKyHoc_Nhat --> SinhVien_Nhat
+Builder *--> MonHoc_Nhat
+KeHoachKyHoc_Nhat *--> MonHoc_Nhat
+
+HeThongLuuTru_Nhat *--> "*" KeHoachKyHoc_Nhat
+
+@enduml

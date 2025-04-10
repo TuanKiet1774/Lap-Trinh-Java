@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Builder{
+    - String maTour
+    - String tenTour
+    - String thoiGian
+    - int giaTour
+    - List<DiaDiemViet> diaDiems
+    + Builder buildTenTour (String tenTour)
+    + Builder buildThoiGian (String thoiGian)
+    + Builder buildGiaTour (String giaTour)
+    + Builder addDiaDiem (DiaDiem dd)
+    + TourDuLichViet build()
+}
+
+class TourDuLichViet{
+    - String maTour
+    - String tenTour
+    - String thoiGian
+    - int giaTour
+    - List<DiaDiemViet> diaDiems
+    # TourDuLichViet(Builder b)
+    + String toString()
+}
+
+class DiaDiemViet{
+    + String tenDD;
+    + String diaChi;
+    + String thoiDiem;
+    + DiaDiemViet(String tenDD, String diaChi, String thoiDiem)
+    + String toString()
+}
+
+class HeThongLuuTruViet{
+    - {static} HeThongLuuTruViet instance;
+    - Map<String, TourDuLichViet> htlt
+    # HeThongLuuTruViet()
+    - {static} HeThongLuuTruViet getInstance()
+    + void addTour(String maTour, TourDuLichViet t)
+    + void hienThi()
+}
+
+
+Builder ..> TourDuLichViet
+Builder *--> DiaDiemViet
+TourDuLichViet *--> DiaDiemViet
+HeThongLuuTruViet *--> TourDuLichViet
+
+@enduml

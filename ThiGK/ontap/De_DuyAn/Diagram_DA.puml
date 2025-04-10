@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class GioHang_AN{
+    - {static} GioHang_AN instance
+    - List<SanPham_An> dssp
+    # GioHang_AN()
+    + {static} GioHang_AN getInstance_AN()
+    + void them_AN(SanPham_AN sp)
+    + void xoa_AN(SanPham_AN sp)
+    + void toString_AN()
+    + void thanhToan_AN()
+}
+
+class SanPham_An{
+    + String maSP
+    + String tenSP
+    + int soLuong
+    + float donGia
+    + void toStringSP_AN()
+}
+
+class UI{
+    - GioHang_AN gh
+    + UI()
+    + void them (SanPham_AN sp)
+    + void xoa (SanPham_AN sp)
+    + void hienThi_AN()
+}
+UI --> GioHang_AN
+SanPham_An <--* GioHang_AN
+
+@enduml
