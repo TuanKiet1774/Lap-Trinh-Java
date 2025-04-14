@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+abstract ObjectDB<T>{
+    -List<T> ds;
+    + {abstract} int getTD(T t)
+    + T findMyID(int id)
+    + void add(T t)
+    + void update(T t)
+    + void deleteByID(int id)
+    + void hienThiDS()
+}
+
+class MySinhVien{
+    - int maSV;
+    - String tenSV;
+    - String ngaySinh;
+    - String queQuan;
+    + MySinhVien(int maSV, String tenSV, String ngaySinh, String queQuan)
+    + String toString()
+}
+
+class MySinhVienDB extends ObjectDB<MySinhVien>{
+    + int getID(MySinhVien sv)
+}
+
+MySinhVienDB *--> MySinhVien
+
+@enduml
