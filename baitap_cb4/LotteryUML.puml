@@ -5,8 +5,8 @@ abstract GiaiThuongVeSo{
     # String maSo, tenGiai
     + GiaiThuongVeSo(maSo)
     + String getTenGiai()
-    + GiaiThuongVeSo giaiThuong(String maSo);
-    + void GiaiThuongVeSo giaiThuongKeTiep(GiaiThuongVeSo gtkt)
+    + {abstract} GiaiThuongVeSo giaiThuong(String maSo);
+    + {abstract} void GiaiThuongVeSo giaiThuongKeTiep(GiaiThuongVeSo gtkt)
 }
 
 class GiaiDacBiet extends GiaiThuongVeSo{
