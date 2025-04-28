@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract Remote{
+    - Device d
+    + Remote(Device d)
+    + void togglePower()
+    + volumeDown()
+    + volumeUp()
+    + Device getD()
+}
+
+interface Device{
+    boolean isEnable();
+    void enable();
+    void disable();
+    int getVolume();
+    void setVolume(int percent);
+}
+
+class AdvanceRemote extends Remote{
+    + int volumeMemo;
+    + boolean isMute = false;
+    + AdvanceRemote(Device d)
+    + void mute()
+}
+
+Remote --> Device
+
+@enduml

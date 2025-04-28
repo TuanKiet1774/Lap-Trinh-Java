@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+'(Chain Of Responsibility) ATM có các mệnh giá 500, 200, 100, 50, 20, 10, 5, 2, 1
+'==> Rút sao cho số tiền ít nhất có thể
+
+'Dùng Factory để dễ tạo ra nhiều loại chuỗi mệnh giá
+abstract class ChuoiMenhGiaFactory{
+ # {abstract} MenhGiaATM getChuoiMenhGiaVND(int menhGia)
+ + void rutTien(int soTien, int menhGiaCaoNhat)
+}
+
+'Khai báo các mệnh giá và Khởi tạo trong hàm khởi tạo
+class ChuoiMenhGiaVND extends ChuoiMenhGiaFactory{
+ + MenhGiaATM m_
+ + ChuoiMenhGiaVND()
+ # MenhGiaATM getChuoiMenhGiaVND(int menhGia)
+ + void rutTien(int soTien, int menhGiaCaoNhat)
+}
+
+abstract class MenhGiaATM{
+ # int giaTri
+ + MenhGiaATM(int giaTri)
+ + {abstract} MenhGiaATM thietLapKeTiep(MenhGiaATM keTiep)
+ + void rutTien(int soTien)
+}
+
+class MenhGiaThapNhat extends MenhGiaATM{
+
+}
+
+class MenhGia extends MenhGiaATM{
+
+}
+
+MenhGia --> MenhGiaATM : keTiep
+ChuoiMenhGiaVND *--> MenhGiaATM: m500,\nm200,\n...,\nm1
+@enduml

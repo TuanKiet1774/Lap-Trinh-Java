@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+'(State Pattern) Biểu diễn trạng thái của một cây ATM
+class ATM{
+    + int soTien
+    + void setState(ATM_State a)
+    + void napTien(int soTien)
+    + void rutTien()
+}
+interface ATM_State{
+    + void xuLyNapTien(int soTien, ATM c)
+    + void xuLyRutTien(ATM c)
+}
+class SanSang implements ATM_State{
+
+}
+class HanChe implements ATM_State{
+
+}
+class HetTien implements ATM_State{
+
+}
+ATM --> ATM_State: state
+
+note right of ATM_State
+    - Mỗi phương thức ở lớp context (ATM)
+    ==> đều phải có một phương thức xử lý ở lớp IState (ATM_State)
+    - Phương thức ở lơ IState (ATM_State) ngoài những tham số như ở lớp context (ATM)
+    ==> Còn có thêm tham số context
+end note
+
+@enduml
