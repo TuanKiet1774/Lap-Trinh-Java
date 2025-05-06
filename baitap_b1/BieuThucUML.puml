@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Bieuthucdongian (được decorate): chỉ có 1 toán hạng
+abstract BieuThuc{
+    + {abstract} float giaTri()
+    + {abstract} String bieuThuc()
+    + String toString()
+}
+
+class BieuThucDonGian extends BieuThuc{
+    - float toanHang
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class BieuThucDecorate extends BieuThuc{
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class cong extends BieuThucDecorate{
+    - float toanHang
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class tru extends BieuThucDecorate{
+    - float toanHang
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class nhan extends BieuThucDecorate{
+    - float toanHang
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class chia extends BieuThucDecorate{
+    - float toanHang
+    + float giaTri()
+    + String bieuThuc()
+}
+BieuThucDecorate --> BieuThuc: bieuThuc
+
+@enduml

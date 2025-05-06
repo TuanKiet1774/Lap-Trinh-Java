@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ISoSanh<T>{
+    + int soSanh(T o1, T o2)
+}
+
+class QLSV{
+    + void sapXep()
+    + void inDS()
+}
+
+class SinhVien{
+    - String hoTen
+    - Date ngaySinh
+    - float diemTb
+}
+
+class SoSanhTheoTen implements ISoSanh{
+    + int soSanh(SinhVien sv1, SinhVien sv2)
+}
+
+class SoSanhTheoDiem implements ISoSanh{
+    + int soSanh(SinhVien sv1, SinhVien sv2)
+}
+
+QLSV --> ISoSanh: soSanh
+QLSV --> SinhVien: dsSV
+SoSanhTheoTen ..> SinhVien
+SoSanhTheoDiem ..> SinhVien
+@enduml
