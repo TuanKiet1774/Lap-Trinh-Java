@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ITrangThai{
+
+}
+
+class CanhBao implements ITrangThai{
+
+}
+
+class BinhThuong implements ITrangThai{
+
+}
+
+class BuocThoiHoc implements ITrangThai{
+
+}
+
+class MonHoc{
+    + String tenMon
+    + int soTC
+    + double diem
+    + MonHoc(String tenMon, int soTC, double diem)
+}
+
+class HocKy{
+    + List<MonHoc> dsmh
+}
+
+HocKy --> MonHoc: dsmh
+HocKy --> ITrangThai: state
+
+@enduml
