@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ThayDoiTiGia{
+    +void nhanThongBao(float delta)
+    'Thay đổi 1 lượng data nào đó truyền vào'
+}
+
+class DichVuTiGia{
+    '+void attach(ThayDoiTiGia ndt)'
+    +void dangKy(ThayDoiTiGia ndt)
+    '+void detach(ThayDoiTiGia ndt)'
+    +void huyDangKy(ThayDoiTiGia ndt)
+    +void thongBao(float delta)
+}
+
+abstract class nhaDauTu{
+    void dangKy()
+    void huyDangKy()
+
+}
+
+DichVuTiGia *--> "*"ThayDoiTiGia: "nhaDauTu"
+nhaDauTu --> DichVuTiGia: "dvtg"
+ThayDoiTiGia <|.. nhaDauTu
+nhaDauTu <|.. nhaDauTuA
+nhaDauTu <|.. nhaDauTuB
+@enduml
