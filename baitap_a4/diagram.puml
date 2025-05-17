@@ -4,14 +4,16 @@
 class Election{
     -{static} Election instance
     - int trumpCount, bidenCount
-    - Election();
+    # Election();
     +{static} Election getInstance()
-    void vote((Candidate c)
+    + void vote(Candidate c)
     + void inKetQua()
 }
 
 class User{
     - String name
+    + String getName()
+    + User(String name)
     + void vote(Candidate c)
 }
 

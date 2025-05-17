@@ -12,4 +12,6 @@ public class DataAccessType1 extends DataAccess {
             instance = new DataAccessType1();
         return instance;
     }
+
+
 }

@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'IStreamListener là Observer
+interface Observer{
+    + void update(List<String> dsmh)
+}
+
+'Stream là Subject chưa danh sách các Observer
+class MonHocSubject{
+    - List<Observer> observer
+    - List<String> dsmh
+    + void dangKyObserver(Observer observer)
+    + void huyDangKyObserver(Observer observer)
+    - void thongBao()
+    + void addMon(String ten)
+    + void removeMon(String ten)
+}
+
+'Client là observer cụ thể
+class Client implements Observer{
+    - String name
+    - List<String> hienThiMon
+    + Client(String name)
+    + void update(List<String> dsmh)
+    + void hienThi()
+}
+
+MonHocSubject o--> "0..*" Observer
+@enduml

@@ -27,10 +27,11 @@ public class DataAccess {
 
     public void Update_P(SanPham sp){
         for(int i = 0; i < ds_SanPham.size(); i++) {
-            if(ds_SanPham.get(i).getP_ID() == sp.getP_ID()) {
-                ds_SanPham.get(i).setP_Name(sp.getP_Name());
-                ds_SanPham.get(i).setP_Count(sp.getP_Count());
-                ds_SanPham.get(i).setP_Price(sp.getP_Price());
+            SanPham temp = ds_SanPham.get(i);
+            if(temp.getP_ID() == sp.getP_ID()) {
+                temp.setP_Name(sp.getP_Name());
+                temp.setP_Count(sp.getP_Count());
+                temp.setP_Price(sp.getP_Price());
             }
         }
     }

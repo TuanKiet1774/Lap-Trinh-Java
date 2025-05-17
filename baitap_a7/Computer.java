@@ -24,10 +24,10 @@ public class Computer {
     }
 
     public static class Builder{
-        private String CPU = "Default";
-        private String Ram = "Default";
-        private String Screen = "Default";
-        private String hardDisk = "Default";
+        private String CPU;
+        private String Ram;
+        private String Screen;
+        private String hardDisk;
 
         public Builder builderCPU(String CPU)
         {

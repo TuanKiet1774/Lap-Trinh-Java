@@ -5,20 +5,20 @@ class Computer{
     - String CPU,
     - String Ram
     - String Screen,
-    - String Harđisk,
-    #Computer(Builder builder)
-    +toString(): String
+    - String HardDisk,
+    # Computer(Builder builder)
+    + toString(): String
 }
 class Builder{
     - String CPU,
     - String Ram
     - String Screen,
     - String Harđisk,
-    +Builder builderCPU(String CPU)
-    +Builder builderRam(String Ram)
-    +Builder builderScreen(String Screen)
-    +Builder builderhardDisk(String hardDisk)
-    +Computer build()
+    + Builder builderCPU(String CPU)
+    + Builder builderRam(String Ram)
+    + Builder builderScreen(String Screen)
+    + Builder builderhardDisk(String hardDisk)
+    + Computer build()
 }
 
 Builder ..> Computer: Create

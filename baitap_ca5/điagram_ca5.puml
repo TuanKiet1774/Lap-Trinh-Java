@@ -13,18 +13,20 @@ class ATM{
     + void nhanThe(ATMListener theATM)
     + void traThe(ATMListener theATM)
 }
-class TaiKhoan implements ATMListener{
-    String tenTK;
-    int soDu;
-    + void duaTheVaoATM()
-    + void rutTheRaATM()
-}
+
 'ATMListener
 interface ATMListener{
     boolean kiemTraSoDu(int soTien)
     void nhanThongBao(int soTien, boolean thanhCong)
 
 }
+class TaiKhoan implements ATMListener{
+    String tenTK;
+    int soDu;
+    + void duaTheVaoATM()
+    + void rutTheRaATM()
+}
+
 
 ATM --> ATMListener: TheATM
 TaiKhoan --> ATM: atm

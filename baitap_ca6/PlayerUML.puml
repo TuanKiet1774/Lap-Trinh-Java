@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface DashBoardObserver{
+    + void update(int thoiGian, int countDown, int grade)
+}
+
+class PlayerData{
+    - List<DashBoardObserver> dsob
+    - int thoiGian
+    - int countDown
+    - int grade
+    + void addOb(DashboardObserver ob)
+    + void removeOb(DashboardObserver ob)
+    + void thongBao()
+    'Phương thức thêm
+    + void setPlayerData(int thoiGian, int countDown, int grade)
+}
+
+class DashBoard implements DashBoardObserver{
+    - String dashBoardID
+    - int currentThoiGian
+    - int currentCountDown
+    - int currentGrade
+    + DashBoard(String dashBoardID)
+    + void update(int thoiGian, int countDown, int grade)
+    + hienThi()
+}
+
+PlayerData o--> "0..*" DashBoardObserver: "thongBao >"
+@enduml

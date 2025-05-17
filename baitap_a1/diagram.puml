@@ -6,7 +6,7 @@ class Builder{
     - List <String> DS_CTHD
     + Builder buildheader(String mahd, string ngay, string tenkh)
     + Builde addCthc(cthd)
-    + HoaDon build
+    + HoaDon build()
 }
 
 class HoaDon{
@@ -14,8 +14,7 @@ class HoaDon{
     - List <String> DS_CTHD
     + toString():String
     # HoaDon(Builder h)
-    +getTongTien
-    +toString(): String
+    + getTongTien()
 }
 
 class HoaDonHeader{
@@ -29,8 +28,8 @@ class ChiTietHD{
     - String SanPham
     - double DonGia
     - int SoLuong
-    - double ChietKhau
-    #ChiTietHD(String Sp, int sl, double dongia, double chietkhau)
+    - int ChietKhau
+    #ChiTietHD(String Sp, int sl, double dongia, int chietkhau)
     +double getThanhTien()
 
 }

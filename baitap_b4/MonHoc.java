@@ -30,6 +30,6 @@ public class MonHoc extends KhoaHoc{
 
     @Override
     public void InDS() {
-        System.out.println("Môn hoc: " + ten + " |Tin chỉ: " + tinchi + " |Học phí: " + TongHocPhi());
+        System.out.println("Môn hoc: " + ten + " - Tin chỉ: " + tinchi + " |Học phí: " + TongHocPhi());
     }
 }

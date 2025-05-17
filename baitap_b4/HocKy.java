@@ -40,7 +40,7 @@ public class HocKy extends KhoaHoc{
     public void InDS() {
         System.out.println("Tên học kỳ: " + ten);
         for(KhoaHoc i: dsmh){
-            System.out.println("Môn: " + i.ten + " Tin chỉ: " + i.TongTinChi()+ " Học phí: " + i.TongHocPhi());
+            System.out.println("Môn: " + i.ten + " - Tin chỉ: " + i.TongTinChi()+ " - Học phí: " + i.TongHocPhi());
         }
     }
 }

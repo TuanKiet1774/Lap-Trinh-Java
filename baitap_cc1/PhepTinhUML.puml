@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Tinh{
+    + float tinhToan(float a, float b)
+}
+
+class context{
+    - Tinh tinhToan
+    + void setTinhToan(Tinh t)
+    + float tinhToan(float a, float b)
+}
+
+class cong implements Tinh{
+    + float tinhToan(float a, float b)
+}
+
+class tru implements Tinh{
+    + float tinhToan(float a, float b)
+}
+
+class nhan implements Tinh{
+    + float tinhToan(float a, float b)
+}
+
+class chia implements Tinh{
+    + float tinhToan(float a, float b)
+}
+
+context "1..1" --> "1..1"Tinh
+@enduml

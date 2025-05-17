@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'IClickListener là observer
+interface IClickListener{
+    + void onClick()
+}
+'Button là subject
+class Button{
+    - String label
+    - IClickListener listener
+    + Button(String label)
+    + void setClickListener(IClickListener Clistener)
+    + void performClick()
+}
+'Activity là một lớp observer cụ thể
+class Activity implements IClickListener{
+    - int clickCount
+    - String acName
+    + Activity(String acName)
+    + void onClick()
+}
+
+Button o--> "0..1" Activity: listener
+@enduml

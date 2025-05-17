@@ -9,7 +9,7 @@ public class Book {
     private String TacGia;
     private List<String> Chuongs;
 
-    public Book(Builder b) {
+    protected Book(Builder b) {
         this.Tuade = b.Tuade;
         this.SoTrang = b.SoTrang;
         this.TacGia = b.TacGia;

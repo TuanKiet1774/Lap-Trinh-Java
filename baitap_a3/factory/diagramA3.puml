@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Shape{
+    - String brush;
+    - String paper;
+    - String frame;
+    + String Shape(String brush, String paper, String frame)
+    + String draw()
+}
+
+enum ShapeType{
+    RECTANGLE
+    TRIANGLE
+    CIRCLE
+}
+
+class ShapeFactory{
+    + Shape createShape(ShapeType t)
+}
+
+class Rectangle extends Shape{
+    - {static} Rectangle instance;
+    # Rectangle()
+    + {static} Rectangle getInstance()
+    + String draw()
+}
+
+class Triangle extends Shape{
+    - {static} Triangle instance;
+    # Triangle()
+    + {static} Triangle getInstance()
+    + String draw()
+}
+
+class Circle extends Shape{
+    - {static} Circle instance;
+    # Circle()
+    + {static} Circle getInstance()
+    + String draw()
+}
+
+'ShapeFactor chứa kiểu dữ liệu Shape
+ShapeFactory --> Shape
+'ShapeFactory sử dụng các ShapeType
+ShapeFactory ..> ShapeType
+
+@enduml
