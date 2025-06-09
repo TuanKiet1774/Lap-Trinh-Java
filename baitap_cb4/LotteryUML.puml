@@ -2,15 +2,15 @@
 'https://plantuml.com/class-diagram
 
 abstract GiaiThuongVeSo{
-    # List<String> dsMaSo = new ArrayList<>()
+    # List<String> dsMaSo
     # String tenGiai
-    + GiaiThuongVeSo(List<String> dsMa : Khởi tạo
+    + GiaiThuongVeSo(List<String> dsMaSo, String tenGiai)
     + String getTenGiai()
     + {abstract} String doVeSo(String maSo)
     + {abstract} GiaiThuongVeSo giaiKeTiep(GiaiThuongVeSo gkt)
 }
 
-class GiaiThuongDacBiet extends GiaiThuongVeSo{
+class GiaiThapNhat extends GiaiThuongVeSo{
 
 }
 

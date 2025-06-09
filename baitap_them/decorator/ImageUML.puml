@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ImageProcess{
+    + void process()
+}
+
+class BasicImageProcess implements ImageProcess{
+    + String path
+    + void process()
+}
+
+abstract class ImageDecorator implements ImageProcess{
+    ImageProcess image
+    + void process()
+}
+
+class BorderDecorator extends ImageDecorator{
+    + void process()
+    + void addBorder()
+}
+
+class WaterMarkDecorator extends ImageDecorator{
+    + void process()
+    + void addWaterMark()
+}
+
+class FilterDecorator extends ImageDecorator{
+    + void process()
+    + void addFilter()
+}
+
+ImageDecorator --> ImageProcess: image
+
+
+note bottom of BorderDecorator
+    Phương thức process:
+        image.process()
+        in kết quả: "Đã thêm Border..."
+end note
+@enduml

@@ -6,19 +6,23 @@ interface Tokenize{
 }
 
 class TachTu implements Tokenize{
-    String s
+    - String s
+    + TachTu(String s)
+    List<String> tokenize()
 }
 
 abstract TokenizeDecorator implements Tokenize{
+    Tokenize token
     List<String> tokenize()
 }
 
 class LoaiBoTuDung extends TokenizeDecorator{
     List<String> tuDungs
+    List<String> tokenize()
 }
 
 class LoaiBoDauCau extends TokenizeDecorator{
-
+    List<String> tokenize()
 }
 
 TokenizeDecorator --> Tokenize: token

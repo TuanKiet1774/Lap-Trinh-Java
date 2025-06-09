@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MobileService{
+    + int soDu
+    + void napTien(soTien)
+    + void goiDien(soGiay)
+    + void inThongTin()
+    + void setState(IState st)
+}
+
+interface IState{
+    + void xuLyNapTien(soTien, MobileService tb)
+    + void xuLyGoiDien(soGiay, MobileService tb)
+    + void xuLyInThongTin(MobileService tb)
+}
+
+class NormalState implements IState{
+
+}
+
+class GoldState implements IState{
+
+}
+
+class SilverState implements IState{
+
+}
+
+MobileService --> IState: state
+
+@enduml

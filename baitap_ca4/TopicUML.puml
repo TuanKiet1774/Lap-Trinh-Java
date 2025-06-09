@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Nhận thông báo từ Topic ==> Topic là Subject| Member là Observer
+class Topic{
+    + void attach(TopicListener listener)
+    + void detach(TopicListener listener)
+    + void insert(String content)
+    + void update(News n)
+}
+
+abstract class Member implements TopicListener{
+
+}
+
+interface TopicListener{
+    + void insertListener(News n)
+    + void updateListener(News n)
+
+}
+
+class MemberA extends Member{
+
+}
+class MemberB extends Member{
+
+}
+
+class News{
+    + int id
+    + String congtent
+}
+
+Topic *--> TopicListener: dslistener
+Member --> Topic: topic
+Topic *--> News: dsNews
+MemberB *--> News: dsNews
+
+@enduml

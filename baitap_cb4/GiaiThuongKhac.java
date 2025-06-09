@@ -12,13 +12,13 @@ public class GiaiThuongKhac extends GiaiThuongVeSo{
     public String doVeSo(String ms) {
         for(var i: dsMaSo)
             if(ms.endsWith(i))
-                return getTenGiai();
-        return gtkt.doVeSo(ms);
+                return "Chúc mừng bạn đã trúng giải: " + tenGiai;
+        return this.gtkt.doVeSo(ms);
     }
 
     @Override
     public GiaiThuongVeSo giaiKeTiep(GiaiThuongVeSo gkt) {
         this.gtkt = gkt;
-        return gkt;
+        return this.gtkt;
     }
 }
