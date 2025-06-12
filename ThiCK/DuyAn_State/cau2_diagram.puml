@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface IState_An{
+    + double chietKhau_An(KhachHang_An kh)
+    + String getState()
+}
+
+class KhachHang_An{
+    - List<MatHang_An> mhs
+    - State state
+    - int diemTichLuy
+    + KhachHang_An(List<MatHang_An> mhs)
+    + void setState(IState_An state)
+    + void inHoaDon_An()
+}
+
+class State{
+   - {static} IState_An instance
+   + {static} IState_An getInstance()
+}
+
+class ThanThietState_An
+
+class BacState_An
+
+class VangState_An
+
+class MatHang_An{
+    - String tenMh
+    - int soLuong
+    - int donGia
+}
+
+ThanThietState_An ..|> IState_An
+VangState_An ..|> IState_An
+BacState_An ..|> IState_An
+KhachHang_An --> State
+State --> IState_An
+MatHang_An <--o KhachHang_An
+
+@enduml
